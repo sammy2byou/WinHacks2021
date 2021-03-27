@@ -1,98 +1,130 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<style>
-.form-control-primary {
-  margin: 10px;
-  opacity: 0.2;
-  border-radius: 2px;
-}
-.sidebar {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  top: 0;
-  z-index: 100;
-  padding: 70px 0 0 10px;
-  border-right: 1px solid #d3d3d3;
-}
-main {
-  padding-top: 90px;
-}
-main .card {
-  margin-bottom: 20px;
-}
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		* {
+		  box-sizing: border-box;
+		}
 
-.left-sidebar {
-  position: sticky;
-  top:0;
-  height: calc(100vh - 70px)
-}
+		#myInput {
+		  background-image: url('/css/searchicon.png');
+		  background-position: 10px 10px;
+		  background-repeat: no-repeat;
+		  width: 100%;
+		  font-size: 16px;
+		  padding: 12px 20px 12px 40px;
+		  border: 1px solid #ddd;
+		  margin-bottom: 12px;
+		}
 
-.sidebar-nav li .nav-link {
-  color: #333;
-  font-weight: 500;
-}
-</style>
-    <title>Dashboard</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
- 	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"> A database </a>
-	<input type="text" class="form-control form-control-primary w-100" placeholder="Search..." >
-	<ul class="navbar-nav px-3">
-  	<li class="nav-item text-nowrap">
-   	
- 	 </li>
+		#myTable {
+		  border-collapse: collapse;
+		  width: 100%;
+		  border: 1px solid #ddd;
+		  font-size: 18px;
+		}
+
+		#myTable th, #myTable td {
+		  text-align: left;
+		  padding: 12px;
+		}
+
+		#myTable tr {
+		  border-bottom: 1px solid #ddd;
+		}
+
+		#myTable tr.header, #myTable tr:hover {
+		  background-color: #f1f1f1;
+		}
+		.form-control-primary {
+		  margin: 10px;
+		  opacity: 0.2;
+		  border-radius: 2px;
+		}
+		.sidebar {
+		  position: fixed;
+		  left: 0;
+		  bottom: 0;
+		  top: 0;
+		  z-index: 100;
+		  padding: 70px 0 0 10px;
+		  border-right: 1px solid #d3d3d3;
+		}
+		main {
+		  padding-top: 90px;
+		}
+		main .card {
+		  margin-bottom: 20px;
+		}
+
+		.left-sidebar {
+		  position: sticky;
+		  top:0;
+		  height: calc(100vh - 70px)
+		}
+
+		.sidebar-nav li .nav-link {
+		  color: #333;
+		  font-weight: 500;
+		}
+	</style>
+<title>Dashboard</title>
+</head>
+<body>
+	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"> A database </a>
+		<input type="text" class="form-control form-control-primary w-100" placeholder="Search..." >
+		<ul class="navbar-nav px-3">
+			<li class="nav-item text-nowrap"></li>
+		</ul>
+	</nav>
+
+	<div class="container-fluid">
+	<div class="row">
+	<div class="col-md-2 bg-light d-none d-md-block sidebar">
+	<div class="left-sidebar">
+	<ul class="nav flex-column sidebar-nav">
+	<li class="nav-item">
+	<a class="nav-link active" href="#">
+	<svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+	Windsor
+	</a>
+	</li>
+	<li class="nav-item">
+	<a class="nav-link" href="#">
+	<svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+	Chatham
+	</a>
+	</li>
+	<li class="nav-item">
+	<a class="nav-link" href="#">
+	<svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+	Maps
+	</a>
+	</li>
+
+
 	</ul>
-    </nav>
-
-<div class="container-fluid">
-  <div class="row">
-<div class="col-md-2 bg-light d-none d-md-block sidebar">
-  <div class="left-sidebar">
-  <ul class="nav flex-column sidebar-nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">
-      <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
-      Windsor
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-      <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
-     Chatham
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">
-      <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
-      Maps
-    </a>
-  </li>
-
- 
-</ul>
-  </div>
-</div>
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-<h3>Candidates</h3>
-<hr>
-<div class="table-responsive">
-  <table class="table table-secondary table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Business Name</th>
-        <th scope="col">Business Website</th>
-        <th scope="col">Business Address</th>
+	</div>
+	</div>
+	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+	<h3>Candidates</h3>
+	<hr>
+	<div class="table-responsive">
+	<table class="table table-secondary table-striped">
+	<thead>
+	<tr>
+	<th scope="col">#</th>
+	<th scope="col">Business Name</th>
+	<th scope="col">Business Website</th>
+	<th scope="col">Business Address</th>
 		<th scope="col">Business Type</th>
 		<th scope="col">Phone Number</th>
 		<th scope="col">E-mail</th>
@@ -100,14 +132,14 @@ main .card {
 		<th scope="col">Owner Contact Information</th>
 		<th scope="col">Description</th>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Truly Green Farms</td>
-        <td><a href ="http://www.trulygreenfarms.ca/" target="_blank"</a>trulygreenfarms.ca</td>
-        <td> <a href = "https://www.google.com/maps/place/Truly+Green+Farms/@42.3848665,-82.2321832,17z/data=!3m1!4b1!4m5!3m4!1s0x8095000000000001:0xed215e88c26cf9e8!8m2!3d42.3848626!4d-82.2299945?hl=en" target ="_blank">162 Bloomfield Road Chatam, ON N7M 0R4</a> </td>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<th scope="row">1</th>
+	<td>Truly Green Farms</td>
+	<td><a href ="http://www.trulygreenfarms.ca/" target="_blank"</a>trulygreenfarms.ca</td>
+	<td> <a href = "https://www.google.com/maps/place/Truly+Green+Farms/@42.3848665,-82.2321832,17z/data=!3m1!4b1!4m5!3m4!1s0x8095000000000001:0xed215e88c26cf9e8!8m2!3d42.3848626!4d-82.2299945?hl=en" target ="_blank">162 Bloomfield Road Chatam, ON N7M 0R4</a> </td>
 	<td>Greenhouse</td>
 	<td>1-519-352-5844</td>
 	<td>info@trulygreenfarms.ca</td>
@@ -115,12 +147,12 @@ main .card {
 	<td>President: Greg Devries<br>Email: greg@cedarline.ca</td> 
 	<td>des</td> 
 
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Busis Beef</td>
-        <td><a href = "//www.buisbeef.ca/index.php" target="_blank" </a>buisbeef</td>
-        <td>7792 Seventh Line East Chatham, ON N7M 5J6</td>
+	</tr>
+	<tr>
+	<th scope="row">2</th>
+	<td>Busis Beef</td>
+	<td><a href = "//www.buisbeef.ca/index.php" target="_blank" </a>buisbeef</td>
+	<td>7792 Seventh Line East Chatham, ON N7M 5J6</td>
 	<td> Farm </td>
 	<td> 519-252-5789 </td>
 	<td> mike@buisheef.ca</td>
@@ -128,12 +160,12 @@ main .card {
 	<td> owner stuff </td>
 	<td> des </td>
 
-      </tr>
-      <tr>
- <th scope="row">3</th>
-     <td>Greenhill Produce</td>
-        <td><a href = "https://greenhillproduce.com/" target="_blank" </a>greehhillproduce</td>
-        <td>11729 River Line Thamesville, ON N0P 2K0</td>
+	</tr>
+	<tr>
+	<th scope="row">3</th>
+	<td>Greenhill Produce</td>
+	<td><a href = "https://greenhillproduce.com/" target="_blank" </a>greehhillproduce</td>
+	<td>11729 River Line Thamesville, ON N0P 2K0</td>
 	<td> Farm </td>
 	<td> 519-692-3477	 </td>
 	<td> info@greenhillproduce.com</td>
@@ -141,167 +173,167 @@ main .card {
 	<td> n/a </td>
 	<td> des </td>
 
-      </tr>
-      <tr>
- <th scope="row">4</th>
-        <td>Golden Acres Peach Co.</td>
-        <td><a href = "https://www.goldenacrespeachcompany.com" target="_blank"</a>goldenacrespeachcompany</td>
-        <td>18895 Fargo Rd. Blenheim, ON N0P 1A0</td>
+	</tr>
+	<tr>
+	<th scope="row">4</th>
+	<td>Golden Acres Peach Co.</td>
+	<td><a href = "https://www.goldenacrespeachcompany.com" target="_blank"</a>goldenacrespeachcompany</td>
+	<td>18895 Fargo Rd. Blenheim, ON N0P 1A0</td>
 	<td> Farm </td>
 	<td> 519-676-4245	 </td>
 	<td> goldenacrespeachcompany@gmail.com</td>
 	<td> Facebook: goldenacrespeachcompany <br> Instagram: @goldenacrespeachcompany</td>
 	<td> n/a </td>
 	<td> des </td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-           <td> Delhaven Orchards LTD </td>
-        <td><a href = "http://www.delhaven.com/" target="_blank"</a>delhaven</td>
-        <td>8182 Talbot Trail Blenheim, ON N0P 1A0</td>
+	</tr>
+	<tr>
+	<th scope="row">5</th>
+	   <td> Delhaven Orchards LTD </td>
+	<td><a href = "http://www.delhaven.com/" target="_blank"</a>delhaven</td>
+	<td>8182 Talbot Trail Blenheim, ON N0P 1A0</td>
 	<td> Farm </td>
 	<td> 519-676-4475 </td>
 	<td> delhaven@delhaven.com</td>
 	<td> n/a </td>
 	<td> n/a</td>
 	<td> des </td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-            <td> Nature's Finest Produce LTD </td>
-        <td><a href = "http://www.naturesfinestproduce.ca/" target="_blank" </a>naturesfinestproduce</td>
-        <td> 6874 Pain Court Line Chatham, ON N0P 1Z0 </td>
+	</tr>
+	<tr>
+	<th scope="row">6</th>
+	    <td> Nature's Finest Produce LTD </td>
+	<td><a href = "http://www.naturesfinestproduce.ca/" target="_blank" </a>naturesfinestproduce</td>
+	<td> 6874 Pain Court Line Chatham, ON N0P 1Z0 </td>
 	<td> Farm </td>
 	<td> 519-380-9520 </td>
 	<td> n/a </td>
 	<td> n/a </td>
 	<td> n/a</td>
 	<td> des </td>
-      </tr>
-      <tr>
-        <th scope="row">7</th>
-            <td> Pardo’s Berrie Farm</td>
-        <td><a href = "https://pardosberriefarm.com/" target="_blank"</a>pardosberriefarm</td>
-        <td> 7951 Talbot Trail Blenheim, ON N0P1A0	 </td>
+	</tr>
+	<tr>
+	<th scope="row">7</th>
+	    <td> Pardo’s Berrie Farm</td>
+	<td><a href = "https://pardosberriefarm.com/" target="_blank"</a>pardosberriefarm</td>
+	<td> 7951 Talbot Trail Blenheim, ON N0P1A0	 </td>
 	<td> Farm </td>
 	<td> 519-676-2008 </td>
 	<td> n/a </td>
 	<td> Facebook: PardosBerrieFarm </td>
 	<td> n/a</td>
 	<td> des </td>
-      </tr>
-      <tr>
-        <th scope="row">8</th>
-        <td> OASIS Greenhouse Limited</td>
-        <td><a href = "https://www.oasisgreenhouses.com/index.html" target="_blank"</a>oasisgreenhouse</td>
-        <td> 24869 Winter Line Road Chatham, ON N7M 5J8	 </td>
+	</tr>
+	<tr>
+	<th scope="row">8</th>
+	<td> OASIS Greenhouse Limited</td>
+	<td><a href = "https://www.oasisgreenhouses.com/index.html" target="_blank"</a>oasisgreenhouse</td>
+	<td> 24869 Winter Line Road Chatham, ON N7M 5J8	 </td>
 	<td> Greenhouse </td>
 	<td> 519-355-0191 </td>
 	<td> n/a </td>
 	<td> n/a </td>
 	<td> n/a</td>
 	<td> des </td>
-      </tr>
-      <tr>
-        <th scope="row">9</th>
-        <td> The Urban GreenHouse</td>
-        <td><a href = "http://urbangreenhousehydroponics.com/home.html" target="_blank"</a>urbangreenhousehydroponics</td>
-        <td> 7635 Tecumseh Rd E Windsor, ON N8T 3H1 </td>
+	</tr>
+	<tr>
+	<th scope="row">9</th>
+	<td> The Urban GreenHouse</td>
+	<td><a href = "http://urbangreenhousehydroponics.com/home.html" target="_blank"</a>urbangreenhousehydroponics</td>
+	<td> 7635 Tecumseh Rd E Windsor, ON N8T 3H1 </td>
 	<td> Garden Center </td>
 	<td> 519-944-8444 </td>
 	<td> n/a </td>
 	<td> n/a </td>
 	<td> n/a</td>
 	<td> des </td>
-      </tr>
-      <tr>
-        <th scope="row">10</th>
-             <td> BlueStar Nursery</td>
-        <td><a href = "https://bluestarnursery.com" target="_blank"</a>bluestarnursary</td>
-        <td> 5056 Malden Road Windsor, Ontario N9E-3T9, Canada</td>
+	</tr>
+	<tr>
+	<th scope="row">10</th>
+	     <td> BlueStar Nursery</td>
+	<td><a href = "https://bluestarnursery.com" target="_blank"</a>bluestarnursary</td>
+	<td> 5056 Malden Road Windsor, Ontario N9E-3T9, Canada</td>
 	<td> Garden Center </td>
 	<td> 519-966-5673 </td>
 	<td> n/a </td>
 	<td> Instagram – bluestarnursary Facebook – Blue Star Nursery </td>
 	<td> n/a</td>
 	<td> des </td>
-      </tr>
-      <tr>
-        <th scope="row">11</th>
-              <td> Flora gardens</td>
-        <td><a href = "http://www.floragardens.com/contact.html" target="_blank"</a>floragardens</td>
-        <td> 2465 Highway 3 (at Walker Road) Oldcastle, ON N0R 1L0</td>
+	</tr>
+	<tr>
+	<th scope="row">11</th>
+	      <td> Flora gardens</td>
+	<td><a href = "http://www.floragardens.com/contact.html" target="_blank"</a>floragardens</td>
+	<td> 2465 Highway 3 (at Walker Road) Oldcastle, ON N0R 1L0</td>
 	<td> Garden Center </td>
 	<td> 519-737-6528  </td>
 	<td> maria@floragardens.com </td>
 	<td> Facebook: flora gardens </td>
 	<td> n/a</td>
 	<td> des </td>
-      </tr>
-      <tr>
-        <th scope="row">12</th>
-        <td> The Bloomin’ Gardener </td>
-        <td><a href = "http://www.thebloomingardener.com" target="_blank"</a>thebloomingardener</td>
-        <td>6673 8th Concession Oldcastle, ON N0R 1L0 </td>
+	</tr>
+	<tr>
+	<th scope="row">12</th>
+	<td> The Bloomin’ Gardener </td>
+	<td><a href = "http://www.thebloomingardener.com" target="_blank"</a>thebloomingardener</td>
+	<td>6673 8th Concession Oldcastle, ON N0R 1L0 </td>
 	<td> Plant Nursery </td>
 	<td>519-737-6548 </td>
 	<td> info@thebloomingardener.com </td>
 	<td> Facebook: The Bloomin’ Gardner Instagram: thebloomingardener </td>
 	<td> n/a </td>
 	<td>des  </td>
-      </tr>
-      <tr>
-        <th scope="row">13</th>
-       <td> Greenhouse Style Corporation </td>
-        <td><a href = "https://www.greenhousestyle.com" target="_blank" </a>greenhousestyle</td>
-        <td>2465 ON-3, Oldcastle, ON N0R 1L0, Canada</td>
+	</tr>
+	<tr>
+	<th scope="row">13</th>
+	<td> Greenhouse Style Corporation </td>
+	<td><a href = "https://www.greenhousestyle.com" target="_blank" </a>greenhousestyle</td>
+	<td>2465 ON-3, Oldcastle, ON N0R 1L0, Canada</td>
 	<td> Greenhouse </td>
 	<td>519-737-6528 </td>
 	<td> infor@greenhousestyle.com</td>
 	<td> Facebook: Greenhouse Style Corporation Pinterest: Greenhouse Style Corporation</td>
 	<td> n/a </td>
 	<td>des  </td>
-      </tr>
-      <tr>
-        <th scope="row">14</th>
- 	<td> Excalibur Plastics Ltd. </td>
-        <td><a href = "https://www.excaliburplastics.com/home-ca/" target="_blank"</a>excaliburplastics</td>
-        <td> 1587 County Rd. 34 Ruthven, Ontario N0P 2G0 </td>
+	</tr>
+	<tr>
+	<th scope="row">14</th>
+	<td> Excalibur Plastics Ltd. </td>
+	<td><a href = "https://www.excaliburplastics.com/home-ca/" target="_blank"</a>excaliburplastics</td>
+	<td> 1587 County Rd. 34 Ruthven, Ontario N0P 2G0 </td>
 	<td> Greenhouse </td>
 	<td> 519 326-6000 </td>
 	<td> sales@excaliburplastics.com </td>
 	<td> Facebook: Excalibur Plastics Ltd. Twitter: Excalibur Plastics YouTube: Excalibur Plastics </td>
 	<td> n/a </td>
 	<td>des  </td>
-      </tr>
-      <tr>
-        <th scope="row">15</th>
- 	<td> Chappus Garm </td>
-        <td><a href = "https://www.chappusfarm.com" target="_blank"</a>chappusfarm</td>
-        <td> 2221 Front Rd, Windsor, ON N9J 2C3, Canada </td>
+	</tr>
+	<tr>
+	<th scope="row">15</th>
+	<td> Chappus Garm </td>
+	<td><a href = "https://www.chappusfarm.com" target="_blank"</a>chappusfarm</td>
+	<td> 2221 Front Rd, Windsor, ON N9J 2C3, Canada </td>
 	<td> Farm </td>
 	<td> 519-734-7334 </td>
 	<td> chappusfarm@gmail.com </td>
 	<td> Instagram: chappusfarm Facebook: Chappus Farm </td>
 	<td> n/a </td>
 	<td>des  </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+	</tr>
+	</tbody>
+	</table>
+	</div>
 
-</main>
-  </div>
-  
-</div>
-<div>
+	</main>
+	</div>
 
-</div>
+	</div>
+	<div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
 </html>
