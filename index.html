@@ -4,40 +4,75 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<style>
+			* {
+			box-sizing: border-box;
+			}
+
+			#myInput {
+			background-image: url('/css/searchicon.png');
+			background-position: 10px 10px;
+			background-repeat: no-repeat;
+			width: 100%;
+			font-size: 16px;
+			padding: 12px 20px 12px 40px;
+			border: 1px solid #ddd;
+			margin-bottom: 12px;
+			}
+
+			#myTable {
+			border-collapse: collapse;
+			width: 100%;
+			border: 1px solid #ddd;
+			font-size: 18px;
+			}
+			#myTable th{
+			cursor: pointer;
+			}
+			#myTable th, #myTable td {
+			text-align: left;
+			padding: 12px;
+			}
+
+			#myTable tr {
+			border-bottom: 1px solid #ddd;
+			}
+
+			#myTable tr.header, #myTable tr:hover {
+			background-color: #f1f1f1;
+			}
 			.form-control-primary {
-			  margin: 10px;
-			  opacity: 0.2;
-			  border-radius: 2px;
+			margin: 10px;
+			opacity: 0.2;
+			border-radius: 2px;
 			}
 			.sidebar {
-			  position: fixed;
-			  left: 0;
-			  bottom: 0;
-			  top: 0;
-			  z-index: 100;
-			  padding: 70px 0 0 10px;
-			  border-right: 1px solid #d3d3d3;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			top: 0;
+			z-index: 100;
+			padding: 70px 0 0 10px;
+			border-right: 1px solid #d3d3d3;
 			}
 			main {
-			  padding-top: 90px;
+			padding-top: 90px;
 			}
 			main .card {
-			  margin-bottom: 20px;
+			margin-bottom: 20px;
 			}
 
 			.left-sidebar {
-			  position: sticky;
-			  top:0;
-			  height: calc(100vh - 70px)
+			position: sticky;
+			top:0;
+			height: calc(100vh - 70px)
 			}
 
 			.sidebar-nav li .nav-link {
-			  color: #333;
-			  font-weight: 500;
+			color: #333;
+			font-weight: 500;
 			}
 		</style>
 		<title>Dashboard</title>
@@ -45,9 +80,9 @@
 	<body>
 		<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
 			<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"> A database </a>
-			<input type="text" class="form-control form-control-primary w-100" placeholder="Search..." >
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by region..." title="Type in a name">
 			<ul class="navbar-nav px-3">
-				<li class="nav-item text-nowrap"> </li>
+				<li class="nav-item text-nowrap"></li>
 			</ul>
 		</nav>
 
@@ -78,220 +113,295 @@
 					</div>
 				</div>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-					<h3>Candidates</h3>
 					<hr>
-					<div class="table-responsive">
-						<table class="table table-secondary table-striped">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Business Name</th>
-									<th scope="col">Business Website</th>
-									<th scope="col">Business Address</th>
-									<th scope="col">Business Type</th>
-									<th scope="col">Phone Number</th>
-									<th scope="col">E-mail</th>
-									<th scope="col">Social Media</th>
-									<th scope="col">Owner Contact Information</th>
-									<th scope="col">Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>Truly Green Farms</td>
-									<td><a href ="http://www.trulygreenfarms.ca/" target="_blank"</a>trulygreenfarms.ca</td>
-									<td> <a href = "https://www.google.com/maps/place/Truly+Green+Farms/@42.3848665,-82.2321832,17z/data=!3m1!4b1!4m5!3m4!1s0x8095000000000001:0xed215e88c26cf9e8!8m2!3d42.3848626!4d-82.2299945?hl=en" target ="_blank">162 Bloomfield Road Chatam, ON N7M 0R4</a> </td>
-									<td>Greenhouse</td>
-									<td>1-519-352-5844</td>
-									<td>info@trulygreenfarms.ca</td>
-									<td> <a href="https://www.facebook.com/trulygreenfarms/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Truly Green Farms</td>
-									<td>President: Greg Devries<br>Email: greg@cedarline.ca</td> 
-									<td>des</td> 
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Busis Beef</td>
-									<td><a href = "//www.buisbeef.ca/index.php" target="_blank" </a>buisbeef</td>
-									<td>  <a href = "https://www.google.com/maps/place/Buis+Beef/@42.3535999,-82.1876157,17z/data=!3m1!4b1!4m5!3m4!1s0x882ffee391a8005d:0xb370d799c8d130a7!8m2!3d42.353596!4d-82.185427?hl=en">7792 Seventh Line East Chatham, ON N7M 5J6</a>  </td>
-									<td> Farm </td>
-									<td> 519-252-5789 </td>
-									<td> mike@buisheef.ca</td>
-									<td> <a href ="https://www.instagram.com/ckbuisbeef/" target="_blank"><img src ="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a>ckbuisbeef </td>
-									<td> owner stuff </td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Greenhill Produce</td>
-									<td><a href = "https://greenhillproduce.com/" target="_blank" </a>greehhillproduce</td>
-									<td> <a href = "https://www.google.co.bw/maps/place/River+Line,+Chatham-Kent,+ON,+Canada/@42.5403112,-81.9915476,17z/data=!3m1!4b1!4m5!3m4!1s0x882ff1b1c4cfdc9f:0x5a8607545c9360c9!8m2!3d42.5403112!4d-81.9893589"> 11729 River Line Thamesville, ON N0P 2K0</a>  </td>
-									<td> Farm </td>
-									<td> 519-692-3477	 </td>
-									<td> info@greenhillproduce.com</td>
-									<td> n/a </td>
-									<td> n/a </td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">4</th>
-									<td>Golden Acres Peach Co.</td>
-									<td><a href = "https://www.goldenacrespeachcompany.com" target="_blank"</a>goldenacrespeachcompany</td>
-									<td> <a href = "https://www.google.com/maps/place/Golden+Acres+Peach+Company/@42.3064576,-81.9672689,17z/data=!3m1!4b1!4m5!3m4!1s0x882fe23313913bf1:0xaf3aab445675b255!8m2!3d42.3064537!4d-81.9650802?hl=en"> 18895 Fargo Rd. Blenheim, ON N0P 1A0</a>  </td>
-									<td> Farm </td>
-									<td> 519-676-4245	 </td>
-									<td> goldenacrespeachcompany@gmail.com</td>
-									<td><a href="https://www.facebook.com/goldenacrespeachcompany" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Golden Acres Peach Company 
-									<br> <a href ="https://www.instagram.com/goldenacrespeachcompany/" target="_blank"><img src ="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a>goldenacrespeachcompany</td>
-									<td> n/a </td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">5</th>
-									<td> Delhaven Orchards LTD </td>
-									<td><a href = "http://www.delhaven.com/" target="_blank"</a>delhaven</td>
-									<td> <a href = "https://www.google.com/maps/place/Delhaven+Orchards/@42.2628863,-82.0504367,17z/data=!3m1!4b1!4m5!3m4!1s0x883002b08d303101:0xbd41d266723ee5f6!8m2!3d42.2628824!4d-82.048248?hl=en"> 8182 Talbot Trail Blenheim, ON N0P 1A0</a> </td>
-									<td> Farm </td>
-									<td> 519-676-4475 </td>
-									<td> delhaven@delhaven.com</td>
-									<td> n/a </td>
-									<td> n/a</td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">6</th>
-									<td> Nature's Finest Produce LTD </td>
-									<td><a href = "http://www.naturesfinestproduce.ca/" target="_blank" </a>naturesfinestproduce</td>
-									<td> <a href = "https://www.google.com/maps/place/Nature's+Finest+Produce/@42.3868495,-82.311249,17z/data=!3m1!4b1!4m5!3m4!1s0x882551493b1d8b25:0x3bbe9db524caf537!8m2!3d42.3868456!4d-82.3090603?hl=en"> 6874 Pain Court Line Chatham, ON N0P 1Z0</a>  </td>
-									<td> Farm </td>
-									<td> 519-380-9520 </td>
-									<td> n/a </td>
-									<td> n/a </td>
-									<td> n/a</td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">7</th>
-									<td> Pardo’s Berrie Farm</td>
-									<td><a href = "https://pardosberriefarm.com/" target="_blank"</a>pardosberriefarm</td>
-									<td> <a href = "https://www.google.com/maps/place/Pardo's+Berrie+Farm/@42.2594424,-82.0620825,17z/data=!3m1!4b1!4m5!3m4!1s0x882fe30b5bc31829:0xe149c6cdc55b81c1!8m2!3d42.2594385!4d-82.0598938?hl=en"> 7951 Talbot Trail Blenheim, ON N0P1A0 </a></td>
-									<td> Farm </td>
-									<td> 519-676-2008 </td>
-									<td> n/a </td>
-									<td> <a href="https://www.facebook.com/PardosBerrieFarm" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>PardosBerrieFarm </td>
-									<td> n/a</td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">8</th>
-									<td> OASIS Greenhouse Limited</td>
-									<td><a href = "https://www.oasisgreenhouses.com/index.html" target="_blank"</a>oasisgreenhouse</td>
-									<td>  <a href = "https://www.google.com/maps/place/Oasis+Greenhouses+Ltd/@42.4153456,-82.3247172,17z/data=!3m1!4b1!4m5!3m4!1s0x882550de1a79f12b:0xaa3143227df827d3!8m2!3d42.4153417!4d-82.3225285?hl=en"> 24869 Winter Line Road Chatham, ON N7M 5J8	  </a> </td>
-									<td> Greenhouse </td>
-									<td> 519-355-0191 </td>
-									<td> n/a </td>
-									<td> n/a </td>
-									<td> n/a</td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">9</th>
-									<td> The Urban GreenHouse</td>
-									<td><a href = "http://urbangreenhousehydroponics.com/home.html" target="_blank"</a>urbangreenhousehydroponics</td>
-									<td> <a href="https://www.google.com/maps/place/Urban+Greenhouse+Hydroponics/@42.3123246,-82.9371043,17z/data=!3m1!4b1!4m5!3m4!1s0x883b2ae9e77185b1:0xf429f5eb4c924f22!8m2!3d42.3123207!4d-82.9349156?hl=en"> 7635 Tecumseh Rd E Windsor, ON N8T 3H1 </a></td>
-									<td> Garden Center </td>
-									<td> 519-944-8444 </td>
-									<td> n/a </td>
-									<td> n/a </td>
-									<td> n/a</td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">10</th>
-									<td> BlueStar Nursery</td>
-									<td><a href = "https://bluestarnursery.com" target="_blank"</a>bluestarnursary</td>
-									<td> <a href="https://www.google.com/maps/place/BLUE+STAR+NURSERY+LTD./@42.2635969,-83.0624977,17z/data=!3m1!4b1!4m5!3m4!1s0x883b2de02e71fe25:0x52652e914233db8b!8m2!3d42.263593!4d-83.060309?hl=en"> 5056 Malden Road Windsor, Ontario N9E-3T9, Canada </a></td>
-									<td> Garden Center </td>
-									<td> 519-966-5673 </td>
-									<td> n/a </td>
-									<td> <a href="https://www.facebook.com/pages/category/Garden-Center/Blue-Star-Nursery-Ltd-153547028151854/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a> Blue Star Nursery 
-									<br><a href ="https://www.instagram.com/bluestarnursery/" target="_blank"><img src ="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a> bluestarnursary </td>
-									<td> n/a</td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">11</th>
-									<td> Flora gardens</td>
-									<td><a href = "http://www.floragardens.com/" target="_blank"</a>floragardens</td>
-									<td> <a href = "https://www.google.com/maps/place/Flora+Gardens/@42.2272507,-82.9646442,17z/data=!3m1!4b1!4m5!3m4!1s0x883b290e2ed510b3:0xc93c15df153878a5!8m2!3d42.2272467!4d-82.9624555?hl=en"> 2465 Highway 3 (at Walker Road) Oldcastle, ON N0R 1L0</a></td>
-									<td> Garden Center </td>
-									<td> 519-737-6528  </td>
-									<td> maria@floragardens.com </td>
-									<td> <a href="https://www.facebook.com/floragardensgreenhouses" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>flora gardens </td>
-									<td> n/a</td>
-									<td> des </td>
-								</tr>
-								<tr>
-									<th scope="row">12</th>
-									<td> The Bloomin’ Gardener </td>
-									<td><a href = "http://www.thebloomingardener.com" target="_blank"</a>thebloomingardener</td>
-									<td> <a href = "https://www.google.com/maps/place/The+Bloomin'+Gardener/@42.1981895,-82.9527773,17z/data=!3m1!4b1!4m5!3m4!1s0x883b290e2ed510b3:0x34db5cbae6004b34!8m2!3d42.1981855!4d-82.9505886?hl=en"> 6673 8th Concession Oldcastle, ON N0R 1L0 </a>  </td>
-									<td> Plant Nursery </td>
-									<td>519-737-6548 </td>
-									<td> info@thebloomingardener.com </td>
-									<td> <a href="https://www.facebook.com/The-Bloomin-Gardener-332477404811/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>The Bloomin’ Gardner
-									<br><a href ="https://www.instagram.com/thebloomingardener/?hl=en" target="_blank"><img src ="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a>thebloomingardener </td>
-									<td> n/a </td>
-									<td>des  </td>
-								</tr>
-								<tr>
-									<th scope="row">13</th>
-									<td> Greenhouse Style Corporation </td>
-									<td><a href = "https://www.greenhousestyle.com" target="_blank" </a>greenhousestyle</td>
-									<td> <a href = "https://www.google.com/maps/place/Greenhouse+Style+Corporation/@42.3142705,-82.847782,17z/data=!3m1!4b1!4m5!3m4!1s0x883ad4c6dc3aaaab:0xa4342b6931221f90!8m2!3d42.3142666!4d-82.8455933?hl=en"> 2465 ON-3, Oldcastle, ON N0R 1L0, Canada </a> </td>
-									<td> Greenhouse </td>
-									<td>519-737-6528 </td>
-									<td> infor@greenhousestyle.com</td>
-									<td><a href="https://www.facebook.com/greenhousesgalore/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Greenhouse Style Corporation 
-									<br><a href="https://www.pinterest.ca/greenhouses0080/" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs_sXpB6GrtRisVeMlGmgQTHxnW39eCugBug&usqp=CAU" width=25px></img></a>Greenhouse Style Corporation</td>
-									<td> n/a </td>
-									<td>des  </td>
-								</tr>
-								<tr>
-									<th scope="row">14</th>
-									<td> Excalibur Plastics Ltd. </td>
-									<td><a href = "https://www.excaliburplastics.com/home-ca/" target="_blank"</a>excaliburplastics</td>
-									<td><a href = "https://www.google.com/maps/place/Excalibur+Plastics+Ltd./@42.0620386,-82.6815252,17z/data=!3m1!4b1!4m5!3m4!1s0x883ac3bd51624363:0xc75451db4e6c2b47!8m2!3d42.0620346!4d-82.6793365?hl=en"> 1587 County Rd. 34 Ruthven, Ontario N0P 2G0 </a> </td>
-									<td> Greenhouse </td>
-									<td> 519 326-6000 </td>
-									<td> sales@excaliburplastics.com </td>
-									<td><a href="https://www.facebook.com/Excalibur-Plastics-Ltd-160691010748558/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Excalibur Plastics Ltd.
-									<br><a href="https://twitter.com/excalplast?lang=en" target ="_blank"><img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGLJULOg8hBtUDfmRfVnx4dkFqOtQbQcLMvg&usqp=CAU" width=25px></img></a>Excalibur Plastics
-									<br><a href= "https://www.youtube.com/channel/UCVZVTabKobRE2L74HMMlTcw" target ="_blank"><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL2i3xJ2koIBVNUqQTt7PNSgYzDKn0bJMhdg&usqp=CAU" width = 25px></img></a>Excalibur Plastics </td>
-									<td> n/a </td>
-									<td>des  </td>
-								</tr>
-								<tr>
-									<th scope="row">15</th>
-									<td> Chappus Garm </td>
-									<td><a href = "https://www.chappusfarm.com" target="_blank"</a>chappusfarm</td>
-									<td> <a href="https://www.google.com/maps/place/Chappus+Farm/@42.2263695,-83.1028929,17z/data=!3m1!4b1!4m5!3m4!1s0x883b31b53ff0a30b:0xd5abd8c737f76801!8m2!3d42.2263655!4d-83.1007042?hl=en"> 2221 Front Rd, Windsor, ON N9J 2C3</a>  </td>
-									<td> Farm </td>
-									<td> 519-734-7334 </td>
-									<td> chappusfarm@gmail.com </td>
-									<td> <a href="https://www.facebook.com/chappusfarm" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a> Chappus Farm 
-									<br><a href ="https://www.instagram.com/chappusfarm/" target="_blank"><img src ="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a>chappusfarm</td>
-									<td> n/a </td>
-									<td>des  </td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+					<table id="myTable">
+						<tr class="header">
+							<th scope="col">#</th>
+							<th scope= "col" onclick="sortTable(0)">Region</th>
+							<th scope="col"  onclick="sortTable(0)">Business Name</th>
+							<th scope="col" onclick="sortTable(0)">Business Website</th>
+							<th scope="col" onclick="sortTable(0)">Business Address</th>
+							<th scope="col" onclick="sortTable(0)">Business Type</th>
+							<th scope="col" onclick="sortTable(0)">Phone Number</th>
+							<th scope="col" onclick="sortTable(0)">E-mail</th>
+							<th scope="col" onclick="sortTable(0)">Social Media</th>
+							<th scope="col" onclick="sortTable(0)">Owner Contact Information</th>
+							<th scope="col" onclick="sortTable(0)">Description</th>
+						</tr>
+						<tr>
+							<th scope="row">1</th>
+							<td>Chatham</td>
+							<td>Truly Green Farms</td>
+							<td><a href = "https://www.buisbeef.ca/index.php" target="_blank" target="_blank"> http://www.trulygreenfarms.ca</a></td>
+							<td> <a href = "https://www.google.com/maps/place/Truly+Green+Farms/@42.3848665,-82.2321832,17z/data=!3m1!4b1!4m5!3m4!1s0x8095000000000001:0xed215e88c26cf9e8!8m2!3d42.3848626!4d-82.2299945?hl=en" target="_blank">162 Bloomfield Road Chatam, ON N7M 0R4</a> </td>
+							<td>Greenhouse</td>
+							<td>1-519-352-5844</td>
+							<td>info@trulygreenfarms.ca</td>
+							<td> <a href="https://www.facebook.com/trulygreenfarms/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Truly Green Farms</td>
+							<td>President: Greg Devries
+							<br>Email: greg@cedarline.ca</td> 
+							<td>des</td> 
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Chatham</td>
+							<td>Busis Beef</td>
+							<td><a href="https://www.buisbeef.ca/index.php" target="_blank">https://www.buisbeef.ca/index.php</a></td>
+							<td><a href="https://www.google.com/maps/place/Buis+Beef/@42.3535999,-82.1876157,17z/data=!3m1!4b1!4m5!3m4!1s0x882ffee391a8005d:0xb370d799c8d130a7!8m2!3d42.353596!4d-82.185427?hl=en" target="_blank">7792 Seventh Line East Chatham, ON N7M 5J6</a></td>
+							<td>Farm</td>
+							<td>519-252-5789</td>
+							<td>mike@buisheef.ca</td>
+							<td><a href="https://www.instagram.com/ckbuisbeef/" target="_blank"><img src="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a>ckbuisbeef</td>
+							<td>owner stuff</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Chatham</td>
+							<td>Greenhill Produce</td>
+							<td><a href="https://greenhillproduce.com/" target="_blank">https://greenhillproduce.com</a></td>
+							<td><a href="https://www.google.co.bw/maps/place/River+Line,+Chatham-Kent,+ON,+Canada/@42.5403112,-81.9915476,17z/data=!3m1!4b1!4m5!3m4!1s0x882ff1b1c4cfdc9f:0x5a8607545c9360c9!8m2!3d42.5403112!4d-81.9893589" target="_blank">11729 River Line Thamesville, ON N0P 2K0</a></td>
+							<td>Farm</td>
+							<td>519-692-3477</td>
+							<td>info@greenhillproduce.com</td>
+							<td>n/a</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">4</th>
+							<td>Chatham</td>
+							<td>Golden Acres Peach Co.</td>
+							<td><a href="https://www.goldenacrespeachcompany.com/" target="_blank">https://www.goldenacrespeachcompany.com</a></td>
+							<td><a href="https://www.google.com/maps/place/Golden+Acres+Peach+Company/@42.3064576,-81.9672689,17z/data=!3m1!4b1!4m5!3m4!1s0x882fe23313913bf1:0xaf3aab445675b255!8m2!3d42.3064537!4d-81.9650802?hl=en" target="_blank"> 18895 Fargo Rd. Blenheim, ON N0P 1A0</a>  </td>
+							<td>Farm</td>
+							<td>519-676-4245</td>
+							<td>goldenacrespeachcompany@gmail.com</td>
+							<td><a href="https://www.facebook.com/goldenacrespeachcompany" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Golden Acres Peach Company 
+								<br><a href="https://www.instagram.com/goldenacrespeachcompany/" target="_blank"><img src ="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a>goldenacrespeachcompany</td>		
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">5</th>
+							<td>Chatham</td>
+							<td>Delhaven Orchards LTD</td>
+							<td><a href="http://www.delhaven.com/" target="_blank">http://www.delhaven.com</a></td>
+							<td><a href="https://www.google.com/maps/place/Delhaven+Orchards/@42.2628863,-82.0504367,17z/data=!3m1!4b1!4m5!3m4!1s0x883002b08d303101:0xbd41d266723ee5f6!8m2!3d42.2628824!4d-82.048248?hl=en">8182 Talbot Trail Blenheim, ON N0P 1A0</a></td>
+							<td>Farm</td>
+							<td>519-676-4475</td>
+							<td>delhaven@delhaven.com</td>
+							<td>n/a</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">6</th>
+							<td>Chatham</td>
+							<td>Nature's Finest Produce LTD</td>
+							<td><a href="http://www.naturesfinestproduce.ca" target="_blank">http://www.naturesfinestproduce.ca</a></td>
+							<td><a href="https://www.google.com/maps/place/Nature's+Finest+Produce/@42.3868495,-82.311249,17z/data=!3m1!4b1!4m5!3m4!1s0x882551493b1d8b25:0x3bbe9db524caf537!8m2!3d42.3868456!4d-82.3090603?hl=en" target="_blank">6874 Pain Court Line Chatham, ON N0P 1Z0</a></td>
+							<td>Farm</td>
+							<td>519-380-9520</td>
+							<td>n/a</td>
+							<td>n/a</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">7</th>
+							<td>Chatham</td>
+							<td>Pardo’s Berrie Farm</td>
+							<td><a href="https://pardosberriefarm.com" target="_blank">https://pardosberriefarm.com</a></td>
+							<td><a href="https://www.google.com/maps/place/Pardo's+Berrie+Farm/@42.2594424,-82.0620825,17z/data=!3m1!4b1!4m5!3m4!1s0x882fe30b5bc31829:0xe149c6cdc55b81c1!8m2!3d42.2594385!4d-82.0598938?hl=en" target="_blank">7951 Talbot Trail Blenheim, ON N0P1A0 </a></td>
+							<td>Farm</td>
+							<td>519-676-2008</td>
+							<td>n/a</td>
+							<td><a href="https://www.facebook.com/PardosBerrieFarm" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>PardosBerrieFarm</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">8</th>
+							<td>Chatham</td>
+							<td>OASIS Greenhouse Limited</td>
+							<td><a href="https://www.oasisgreenhouses.com" target="_blank">https://www.oasisgreenhouses.com/index.html</a></td>
+							<td><a href="https://www.google.com/maps/place/Oasis+Greenhouses+Ltd/@42.4153456,-82.3247172,17z/data=!3m1!4b1!4m5!3m4!1s0x882550de1a79f12b:0xaa3143227df827d3!8m2!3d42.4153417!4d-82.3225285?hl=en" target="_blank">24869 Winter Line Road Chatham, ON N7M 5J8</a></td>
+							<td>Greenhouse</td>
+							<td>519-355-0191</td>
+							<td>n/a</td>
+							<td>n/a</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">9</th>
+							<td>Windsor</td>
+							<td>The Urban GreenHouse Hydroponics</td>
+							<td><a href="http://urbangreenhousehydroponics.com/home.html" target="_blank">http://urbangreenhousehydroponics.com/home.html</a></td>
+							<td><a href="https://www.google.com/maps/place/Urban+Greenhouse+Hydroponics/@42.3123246,-82.9371043,17z/data=!3m1!4b1!4m5!3m4!1s0x883b2ae9e77185b1:0xf429f5eb4c924f22!8m2!3d42.3123207!4d-82.9349156?hl=en" target="_blank">7635 Tecumseh Rd E Windsor, ON N8T 3H1</a></td>
+							<td>Garden Center</td>
+							<td>519-944-8444</td>
+							<td>n/a</td>
+							<td>n/a</td>
+							<td>n/a</td>
+						</tr>
+						<tr>
+							<th scope="row">10</th>
+							<td>Windsor</td>
+							<td>BlueStar Nursery</td>
+							<td><a href="https://bluestarnursery.com" target="_blank">https://bluestarnursery.com</a></td>
+							<td><a href="https://www.google.com/maps/place/BLUE+STAR+NURSERY+LTD./@42.2635969,-83.0624977,17z/data=!3m1!4b1!4m5!3m4!1s0x883b2de02e71fe25:0x52652e914233db8b!8m2!3d42.263593!4d-83.060309?hl=en" target="_blank">5056 Malden Road Windsor, Ontario N9E-3T9</a></td>
+							<td>Garden Center</td>
+							<td>519-966-5673</td>
+							<td>n/a</td>
+							<td><a href="https://www.facebook.com/pages/category/Garden-Center/Blue-Star-Nursery-Ltd-153547028151854/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Blue Star Nursery
+								<br><a href="https://www.instagram.com/bluestarnursery/" target="_blank"><img src ="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a>bluestarnursary</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">11</th>
+							<td>Windsor</td>
+							<td>Flora gardens</td>
+							<td><a href="http://www.floragardens.com/index.html" target="_blank">http://www.floragardens.com/index.html</a></td>
+							<td><a href="https://www.google.com/maps/place/Flora+Gardens/@42.2272507,-82.9646442,17z/data=!3m1!4b1!4m5!3m4!1s0x883b290e2ed510b3:0xc93c15df153878a5!8m2!3d42.2272467!4d-82.9624555?hl=en" target="_blank">2465 Highway 3 (at Walker Road) Oldcastle, ON N0R 1L0</a></td>
+							<td>Garden Center</td>
+							<td>519-737-6528</td>
+							<td>maria@floragardens.com</td>
+							<td><a href="https://www.facebook.com/floragardensgreenhouses" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>flora gardens</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">12</th>
+							<td>Windsor</td>
+							<td>The Bloomin’ Gardener</td>
+							<td><a href="http://www.thebloomingardener.com" target="_blank">http://www.thebloomingardener.com</a></td>
+							<td><a href="https://www.google.com/maps/place/The+Bloomin'+Gardener/@42.1981895,-82.9527773,17z/data=!3m1!4b1!4m5!3m4!1s0x883b290e2ed510b3:0x34db5cbae6004b34!8m2!3d42.1981855!4d-82.9505886?hl=en" target="_blank">6673 8th Concession Oldcastle, ON N0R 1L0</a></td>
+							<td>Plant Nursery</td>
+							<td>519-737-6548</td>
+							<td>info@thebloomingardener.com</td>
+							<td><a href="https://www.facebook.com/The-Bloomin-Gardener-332477404811/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>The Bloomin’ Gardner
+							<br><a href ="https://www.instagram.com/thebloomingardener/?hl=en" target="_blank"><img src ="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg"width=25px></img></a>thebloomingardener </td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">13</th>
+							<td>Windsor</td>
+							<td>Greenhouse Style Corporation</td>
+							<td><a href="https://www.greenhousestyle.com" target="_blank">https://www.greenhousestyle.com</a></td>
+							<td><a href="https://www.google.com/maps/place/Greenhouse+Style+Corporation/@42.3142705,-82.847782,17z/data=!3m1!4b1!4m5!3m4!1s0x883ad4c6dc3aaaab:0xa4342b6931221f90!8m2!3d42.3142666!4d-82.8455933?hl=en" target="_blank">2465 ON-3, Oldcastle, ON N0R 1L0</a></td>
+							<td>Greenhouse</td>
+							<td>519-737-6528</td>
+							<td>infor@greenhousestyle.com</td>
+							<td><a href="https://www.facebook.com/greenhousesgalore/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Greenhouse Style Corporation 
+								<br><a href="https://www.pinterest.ca/greenhouses0080/" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs_sXpB6GrtRisVeMlGmgQTHxnW39eCugBug&usqp=CAU" width=25px></img></a>Greenhouse Style Corporation</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">14</th>
+							<td>Windsor</td>
+							<td>Excalibur Plastics Ltd.</td>
+							<td><a href="https://www.excaliburplastics.com/home-ca/" target="_blank">https://www.excaliburplastics.com/home-ca</a></td>
+							<td><a href="https://www.google.com/maps/place/Excalibur+Plastics+Ltd./@42.0620386,-82.6815252,17z/data=!3m1!4b1!4m5!3m4!1s0x883ac3bd51624363:0xc75451db4e6c2b47!8m2!3d42.0620346!4d-82.6793365?hl=en" target="_blank">1587 County Rd. 34 Ruthven, Ontario N0P 2G0</a></td>
+							<td>Greenhouse</td>
+							<td>519-326-6000</td>
+							<td>sales@excaliburplastics.com</td>
+							<td><a href="https://www.facebook.com/Excalibur-Plastics-Ltd-160691010748558/" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a>Excalibur Plastics Ltd.
+								<br><a href="https://twitter.com/excalplast?lang=en" target ="_blank"><img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGLJULOg8hBtUDfmRfVnx4dkFqOtQbQcLMvg&usqp=CAU" width=25px></img></a>Excalibur Plastics
+								<br><a href="https://www.youtube.com/channel/UCVZVTabKobRE2L74HMMlTcw" target ="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL2i3xJ2koIBVNUqQTt7PNSgYzDKn0bJMhdg&usqp=CAU" width = 25px></img></a>Excalibur Plastics</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+						<tr>
+							<th scope="row">15</th>
+							<td>Windsor</td>
+							<td>Chappus Garm</td>
+							<td><a href="https://www.chappusfarm.com" target="_blank">https://www.chappusfarm.com</a></td>
+							<td><a href="https://www.google.com/maps/place/Chappus+Farm/@42.2263695,-83.1028929,17z/data=!3m1!4b1!4m5!3m4!1s0x883b31b53ff0a30b:0xd5abd8c737f76801!8m2!3d42.2263655!4d-83.1007042?hl=en" target="_blank">2221 Front Rd, Windsor, ON N9J 2C3</a></td>
+							<td>Farm</td>
+							<td>519-734-7334</td>
+							<td>chappusfarm@gmail.com</td>
+							<td> <a href="https://www.facebook.com/chappusfarm" target="_blank"><img src="https://i.pinimg.com/originals/b3/26/b5/b326b5f8d23cd1e0f18df4c9265416f7.png" width=25px></img></a> Chappus Farm 
+								<br><a href="https://www.instagram.com/chappusfarm/" target="_blank"><img src="https://i.pinimg.com/originals/71/72/16/7172161b580470deb78078669236d2c1.jpg" width=25px></img></a>chappusfarm</td>
+							<td>n/a</td>
+							<td>des</td>
+						</tr>
+					</table>
+					<script>
+						function myFunction() {
+							var input, filter, table, tr, td, i, txtValue;
+							input = document.getElementById("myInput");
+							filter = input.value.toUpperCase();
+							table = document.getElementById("myTable");
+							tr = table.getElementsByTagName("tr");
+							for (i = 0; i < tr.length; i++) {
+								td = tr[i].getElementsByTagName("td")[0];
+								if (td) {
+									txtValue = td.textContent || td.innerText;
+									if (txtValue.toUpperCase().indexOf(filter) > -1) {
+										tr[i].style.display = "";
+									} else {
+									tr[i].style.display = "none";
+									}
+								}       
+							}
+						}
+						function sortTable(n) {
+							var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+							table = document.getElementById("myTable");
+							switching = true;
+							dir = "asc"; //Set the sorting direction to ascending
+							/*Make a loop that will continue until
+							no switching has been done:*/
+							while (switching) {
+								switching = false; //start by saying: no switching is done
+								rows = table.rows;
+								/*Loop through all table rows (except the
+								first, which contains table headers):*/
+								for (i = 1; i < (rows.length - 1); i++) {
+									shouldSwitch = false; //start by saying there should be no switching
+									/*Get the two elements you want to compare,
+									one from current row and one from the next:*/
+									x = rows[i].getElementsByTagName("TD")[n];
+									y = rows[i + 1].getElementsByTagName("TD")[n];
+									/*check if the two rows should switch place,
+									based on the direction, asc or desc:*/
+									if (dir == "asc") {
+										if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+										shouldSwitch= true;//if so, mark as a switch and break the loop
+										break;
+										}
+									} else if (dir == "desc") {
+										if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+										shouldSwitch = true; //if so, mark as a switch and break the loop
+										break;
+										}
+									}
+								}
+								if (shouldSwitch) {
+									/*If a switch has been marked, make the switch
+									and mark that a switch has been done:*/
+									rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+									switching = true;
+									switchcount ++; //Each time a switch is done, increase this count by 1 
+								} else {
+									/*If no switching has been done AND the direction is "asc",
+									set the direction to "desc" and run the while loop again.*/
+									if (switchcount == 0 && dir == "asc") {
+										dir = "desc";
+										switching = true;
+									}
+								}
+							}
+						}
+					</script>
 				</main>
 			</div>
-
 		</div>
-
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
